@@ -32,7 +32,7 @@ You just need to ensure WooCommerce is also installed and activated and you are 
 
 = Help/Feedback/Contributions =
 
-For help using the plugin use our [support forum](wcpscr-product-search-category-redirect/).
+For help using the plugin use our [support forum](https://wordpress.org/support/plugin/wcpscr-product-search-category-redirect/).
 
 For feature requests and bug reports use our [feedback board](https://feedback.99w.co.uk/b/Product-Search-Category-Redirect).
 
