@@ -37,7 +37,8 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 
 				$product_categories = get_terms(
 					array(
-						'taxonomy'	=> 'product_cat',
+						'taxonomy'		=> 'product_cat',
+						'hide_empty'	=> false, // Ensures redirect still occurs even if no products in category (without this you would get an empty search results page)
 					),
 				);
 
