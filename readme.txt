@@ -58,6 +58,6 @@ Manual installation method requires downloading the plugin and uploading it to y
 
 == Changelog ==
 
-= 1.0.0 - 2021-05-22 =
+= 1.0.0 - 2021-05-25 =
 
 * Initial release
