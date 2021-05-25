@@ -1,4 +1,4 @@
-=== WCPSCR Product Search Category Redirect ===
+=== Product Search Category Redirect ===
 Contributors: ninetyninew
 Tags: product search, search by category, product categories, category search
 Requires at least: 5.0

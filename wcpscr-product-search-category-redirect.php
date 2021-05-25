@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: WCPSCR Product Search Category Redirect
+ * Plugin Name: Product Search Category Redirect
  * Plugin URI: https://99w.co.uk
  * Description: Redirects product searches matching a product category to the product category page.
  * Version: 1.0.0
