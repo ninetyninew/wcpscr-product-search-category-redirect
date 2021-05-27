@@ -4,7 +4,7 @@
  * Plugin Name: Product Search Category Redirect
  * Plugin URI: https://99w.co.uk
  * Description: Redirects product searches matching a product category to the product category page.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -42,45 +42,50 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 					),
 				);
 
-				$search_query = strtolower( sanitize_text_field( $_GET['s'] ) ); // Get search query
-				$search_query_exploded = explode( ' ', $search_query ); // Explode search query so we can count how many words
-				$search_query_words = count( $search_query_exploded ); // Get the amount of words in the search query
+				// If there are product categories
 
-				// Loop through the product categories
+				if( !empty( $product_categories ) ) {
 
-				foreach ( $product_categories as $product_category ) {
+					$search_query = strtolower( sanitize_text_field( $_GET['s'] ) ); // Get search query
+					$search_query_exploded = explode( ' ', $search_query ); // Explode search query so we can count how many words
+					$search_query_words = count( $search_query_exploded ); // Get the amount of words in the search query
 
-					$product_category_name = strtolower( $product_category->name ); // Get product category name
-					$product_category_name_exploded = explode( ' ', $product_category_name ); // Explode product category so we can count how many words
-					$product_category_name_words = count( $product_category_name_exploded ); // Get the amount of words in the product category name
+					// Loop through the product categories
 
-					// Check if the search query has the same amount of words as the product category name, this condition ensures that queries containing less/more words than would match the category still search as normal, e.g. searching "crane scale" would redirect to a "crane scales" category, but "abc crane scale" would search as normal
+					foreach ( $product_categories as $product_category ) {
 
-					if( $search_query_words == $product_category_name_words ) {
+						$product_category_name = strtolower( $product_category->name ); // Get product category name
+						$product_category_name_exploded = explode( ' ', $product_category_name ); // Explode product category so we can count how many words
+						$product_category_name_words = count( $product_category_name_exploded ); // Get the amount of words in the product category name
 
-						// Conditions below ensure the redirect occurs if it's the same words as the product category in any order
+						// Check if the search query has the same amount of words as the product category name, this condition ensures that queries containing less/more words than would match the category still search as normal, e.g. searching "crane scale" would redirect to a "crane scales" category, but "abc crane scale" would search as normal
 
-						$words_found = 0; // Start count of words found from search query in product category name
+						if( $search_query_words == $product_category_name_words ) {
 
-						foreach( $search_query_exploded as $search_query_word ) {
+							// Conditions below ensure the redirect occurs if it's the same words as the product category in any order
 
-							if( strpos( $product_category_name, $search_query_word ) !== false ) { // If search query word is in the product category name
+							$words_found = 0; // Start count of words found from search query in product category name
 
-								$words_found = $words_found + 1; // Increase words found total
+							foreach( $search_query_exploded as $search_query_word ) {
+
+								if( strpos( $product_category_name, $search_query_word ) !== false ) { // If search query word is in the product category name
+
+									$words_found = $words_found + 1; // Increase words found total
+
+								}
+
+							}
+
+							// If all the words are within the product category name
+
+							if( $words_found == $product_category_name_words ) {
+
+								wp_redirect( get_term_link( $product_category ), 301 ); // Redirect to product category
+								exit; // Exit after redirect
 
 							}
 
 						}
-
-						// If all the words are within the product category name
-
-						if( $words_found == $product_category_name_words ) {
-
-							wp_redirect( get_term_link( $product_category ), 301 ); // Redirect to product category
-							exit; // Exit after redirect
-
-						}
-
 
 					}
 

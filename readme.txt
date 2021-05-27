@@ -4,7 +4,7 @@ Tags: product search, search by category, product categories, category search
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,6 +57,10 @@ Search for "Product Search Category Redirect", find this plugin in the list and 
 Manual installation method requires downloading the plugin and uploading it to your web server via an FTP application. See these [instructions on how to do this](https://wordpress.org/support/article/managing-plugins/#manual-plugin-installation).
 
 == Changelog ==
+
+= 1.0.1 - 2021-05-27 =
+
+* Added: Check for empty product categories before attempting redirect
 
 = 1.0.0 - 2021-05-25 =
 
