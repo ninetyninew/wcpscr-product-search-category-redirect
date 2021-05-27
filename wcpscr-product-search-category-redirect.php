@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Product Search Category Redirect
  * Plugin URI: https://99w.co.uk
- * Description: Redirects product searches matching a product category to the product category page.
+ * Description: Redirects WooCommerce product searches matching a product category to the product category page.
  * Version: 1.0.1
  * Requires at least: 5.0
  * Requires PHP: 7.0

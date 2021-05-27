@@ -8,7 +8,7 @@ Stable tag: 1.0.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Redirects product searches matching a product category to the product category page.
+Redirects WooCommerce product searches matching a product category to the product category page.
 
 == Description ==
 
@@ -61,6 +61,7 @@ Manual installation method requires downloading the plugin and uploading it to y
 = 1.0.1 - 2021-05-27 =
 
 * Added: Check for empty product categories before attempting redirect
+* Changed: Plugin headers and readme
 
 = 1.0.0 - 2021-05-25 =
 
