@@ -12,17 +12,17 @@ Redirects WooCommerce product searches matching a product category to the produc
 
 == Description ==
 
-When a customer on your WooCommerce store searches for products using the standard product search this plugin will redirect any search query which matches a product category name to the product category page.
+When a customer on your WooCommerce store searches for products using the standard product search this plugin will redirect any search query which matches a product category name to the product category page. The search query words can be in a different order to the product category name, aslong as the words within the query match the words within the product category name it will do the redirect.
 
 This is useful if your product data (title and description, etc) does not contain any reference to the product category it is assigned to.
 
+WooCommerce appears to include some very basic functionality for this but it appears to only work well for single word product categories, not taking into account multiple word product categories and multiple word categories where the words are typed in a different order to the product category name.
+
 = Example =
 
-You have a product called "ABC Hanging Scale" in a "Crane Scales" product category, the product title, description, etc does not contain any reference to it being a crane scale.
+You have a product called "ABC Hanging Scale" in a "Crane Scales" product category and the product's title, description, etc does not contain any reference to it being a crane scale then when a customer searches for "crane scales", "crane scale", "scale crane", etc this product would not be returned in the results.
 
-When someone searches for "crane scales" or "crane scale" or "scale crane", etc this product and others like it would not be returned in the results.
-
-Therefore with this plugin it will automatically redirect any search query which matches a product category to the product category itself - showing all the products related to that query instead of just the products which contain a reference to the category name in the title and description.
+This plugin will automatically redirect any search query which matches a product category to the product category itself - showing all the products related to that query instead of just the products which contain a reference to the category name in the title and description.
 
 = Settings =
 
