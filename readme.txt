@@ -1,10 +1,10 @@
 === Product Search Category Redirect ===
 Contributors: ninetyninew
-Tags: product search, search by category, product categories, category search
+Tags: product search, search by category, category search, product category, product categories
 Requires at least: 5.0
-Tested up to: 5.7.2
+Tested up to: 5.9.2
 Requires PHP: 7.0
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,14 +30,6 @@ There are no settings to configure for this plugin, just install and activate it
 
 You just need to ensure WooCommerce is also installed and activated and you are using the standard WooCommerce product search. This will be the case unless you have installed another search plugin and/or your theme has replaced the standard product search. You can test this by searching for a product on your store. If the URL ends with something like `?s=your-search-term&post_type=product` then this is the standard product search.
 
-= Help/Feedback/Contributions =
-
-For help using the plugin use our [support forum](https://wordpress.org/support/plugin/wcpscr-product-search-category-redirect/).
-
-For feature requests and bug reports use our [feedback board](https://feedback.99w.co.uk/b/Product-Search-Category-Redirect-WooCommerce).
-
-You can contribute to the plugin via our [GitHub repository](https://github.com/ninetyninew/wcpscr-product-search-category-redirect).
-
 == Installation ==
 
 = Minimum requirements =
@@ -57,6 +49,12 @@ Search for "Product Search Category Redirect", find this plugin in the list and 
 Manual installation method requires downloading the plugin and uploading it to your web server via an FTP application. See these [instructions on how to do this](https://wordpress.org/support/article/managing-plugins/#manual-plugin-installation).
 
 == Changelog ==
+
+= 1.1.0 - 2022-03-23 =
+
+* Added: wcpscr_product_search_category_textdomain function
+* Changed: WordPress tested up to 5.9.2
+* Fixed: Translations (if included in future) may not load due to load_plugin_textdomain not registered on init
 
 = 1.0.1 - 2021-05-27 =
 

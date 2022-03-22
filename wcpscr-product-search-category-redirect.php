@@ -4,7 +4,7 @@
  * Plugin Name: Product Search Category Redirect
  * Plugin URI: https://99w.co.uk
  * Description: Redirects WooCommerce product searches matching a product category to the product category page.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -19,11 +19,9 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-load_plugin_textdomain( 'wcpscr-product-search-category-redirect', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); // Ensures is_plugin_active() can be used here
-
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is active, works for standalone and multisite network
+if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 	function wcpscr_product_search_category_redirect() {
 
@@ -96,23 +94,13 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 		}
 
 	}
-
 	add_action( 'template_redirect', 'wcpscr_product_search_category_redirect' );
 
-} else {
+	function wcpscr_product_search_category_textdomain() {
 
-	add_action( 'admin_notices', function() {
+		load_plugin_textdomain( 'wcpscr-product-search-category-redirect', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
-		// Error notice displayed to users who can edit plugins if WooCommerce is not active
-
-		if ( current_user_can( 'edit_plugins' ) ) { ?>
-
-			<div class="notice notice-error">
-				<p><?php _e( 'Product Search Category Redirect cannot be used as WooCommerce is not active, to use Product Search Category Redirect activate WooCommerce.', 'wcpscr-product-search-category-redirect' ); ?></p>
-			</div>
-
-		<?php }
-
-	} );
+	}
+	add_action( 'init', 'wcpscr_product_search_category_textdomain' );
 
 }
