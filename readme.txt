@@ -52,7 +52,7 @@ Manual installation method requires downloading the plugin and uploading it to y
 
 = 1.1.0 - 2022-03-23 =
 
-* Added: wcpscr_product_search_category_textdomain function
+* Added: wcpscr_product_search_category_translation function
 * Changed: WordPress tested up to 5.9.2
 * Fixed: Translations (if included in future) may not load due to load_plugin_textdomain not hooked on init
 
