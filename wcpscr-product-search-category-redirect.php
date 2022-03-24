@@ -103,4 +103,22 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	}
 	add_action( 'template_redirect', 'wcpscr_product_search_category_redirect' );
 
+} else {
+
+	add_action( 'admin_notices', function() {
+
+		if ( current_user_can( 'edit_plugins' ) ) {
+
+			?>
+
+			<div class="notice notice-error">
+				<p><?php esc_html_e( 'Product Search Category Redirect requires WooCommerce to be installed and activated.', 'wcpscr-product-search-category-redirect' ); ?></p>
+			</div>
+
+			<?php
+
+		}
+
+	});
+
 }
