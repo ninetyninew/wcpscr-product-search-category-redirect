@@ -112,7 +112,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			?>
 
 			<div class="notice notice-error">
-				<p><?php esc_html_e( 'Product Search Category Redirect requires WooCommerce to be installed and activated.', 'wcpscr-product-search-category-redirect' ); ?></p>
+				<p><strong><?php esc_html_e( 'Product Search Category Redirect requires WooCommerce to be installed and activated.', 'wcpscr-product-search-category-redirect' ); ?></strong></p>
 			</div>
 
 			<?php
