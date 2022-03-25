@@ -1,6 +1,6 @@
 === Product Search Category Redirect ===
 Contributors: ninetyninew
-Tags: product search, search by category, category search, product category, product categories
+Tags: redirect, redirects, search, product redirect, product redirects, product search
 Requires at least: 5.0
 Tested up to: 5.9.2
 Requires PHP: 7.0
@@ -50,7 +50,7 @@ Manual installation method requires downloading the plugin and uploading it to y
 
 == Changelog ==
 
-= 1.1.0 - 2022-03-23 =
+= 1.1.0 - 2022-03-25 =
 
 * Added: wcpscr_product_search_category_translation function
 * Added: WooCommerce not installed/activated notice
