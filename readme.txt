@@ -2,9 +2,9 @@
 Contributors: ninetyninew
 Tags: redirect, redirects, search, product redirect, product redirects, product search
 Requires at least: 5.0
-Tested up to: 5.9.2
+Tested up to: 5.9.3
 Requires PHP: 7.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -49,6 +49,11 @@ Search for "Product Search Category Redirect", find this plugin in the list and 
 Manual installation method requires downloading the plugin and uploading it to your web server via an FTP application. See these [instructions on how to do this](https://wordpress.org/support/article/managing-plugins/#manual-plugin-installation).
 
 == Changelog ==
+
+= 1.1.1 - 2022-04-23 =
+
+* Changed: Code refactoring
+* Changed: WordPress tested up to 5.9.3
 
 = 1.1.0 - 2022-03-25 =
 

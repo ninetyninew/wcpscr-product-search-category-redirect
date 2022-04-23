@@ -4,7 +4,7 @@
  * Plugin Name: Product Search Category Redirect
  * Plugin URI: https://99w.co.uk
  * Description: Redirects WooCommerce product searches matching a product category to the product category page.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -16,7 +16,9 @@
  */
 
 if ( !defined( 'ABSPATH' ) ) {
+
 	exit;
+
 }
 
 function wcpscr_product_search_category_translation() {
@@ -26,7 +28,7 @@ function wcpscr_product_search_category_translation() {
 }
 add_action( 'init', 'wcpscr_product_search_category_translation' );
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
@@ -34,9 +36,11 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 		// If a search query (post type included as WooCommerce uses this to define a product search)
 
-		if( isset( $_GET['s'] ) && isset( $_GET['post_type'] ) ) {
+		if ( isset( $_GET['s'] ) && isset( $_GET['post_type'] ) ) {
 
-			if( sanitize_text_field( $_GET['post_type'] ) == 'product' ) { // If a WooCommerce product search
+			// If a WooCommerce product search
+
+			if ( 'product' == sanitize_text_field( $_GET['post_type'] ) ) {
 
 				// Get product categories
 
@@ -49,7 +53,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 				// If there are product categories
 
-				if( !empty( $product_categories ) ) {
+				if ( !empty( $product_categories ) ) {
 
 					$search_query = strtolower( sanitize_text_field( $_GET['s'] ) ); // Get search query
 					$search_query_exploded = explode( ' ', $search_query ); // Explode search query so we can count how many words
@@ -65,15 +69,15 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 						// Check if the search query has the same amount of words as the product category name, this condition ensures that queries containing less/more words than would match the category still search as normal, e.g. searching "crane scale" would redirect to a "crane scales" category, but "abc crane scale" would search as normal
 
-						if( $search_query_words == $product_category_name_words ) {
+						if ( $search_query_words == $product_category_name_words ) {
 
 							// Conditions below ensure the redirect occurs if it's the same words as the product category in any order
 
 							$words_found = 0; // Start count of words found from search query in product category name
 
-							foreach( $search_query_exploded as $search_query_word ) {
+							foreach ( $search_query_exploded as $search_query_word ) {
 
-								if( strpos( $product_category_name, $search_query_word ) !== false ) { // If search query word is in the product category name
+								if ( false !== strpos( $product_category_name, $search_query_word ) ) { // If search query word is in the product category name
 
 									$words_found = $words_found + 1; // Increase words found total
 
@@ -83,10 +87,15 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 							// If all the words are within the product category name
 
-							if( $words_found == $product_category_name_words ) {
+							if ( $words_found == $product_category_name_words ) {
 
-								wp_redirect( get_term_link( $product_category ), 301 ); // Redirect to product category
-								exit; // Exit after redirect
+								// Redirect to product category
+
+								wp_redirect( get_term_link( $product_category ), 301 );
+
+								// Exit after redirect
+
+								exit;
 
 							}
 
