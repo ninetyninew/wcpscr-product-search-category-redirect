@@ -1,2 +1,12 @@
+# Composer
+vendor/
+
+# Node.js
+node_modules/
+
+# OS
 .DS_Store
-node_modules
+Thumbs.db
+
+# PHPCS
+phpcs-report.txt
